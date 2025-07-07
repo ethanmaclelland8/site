@@ -1,0 +1,1073 @@
+            .origin-story::before {
+                font-size: 0.7rem;
+                padding: 3px 10px;
+                left: 10px;
+            }
+
+            .brrr-breakdown {
+                padding: 1rem;
+                margin: 1rem 0;
+            }
+
+            .brrr-step strong {
+                display: block;
+                margin-bottom: 0.3rem;
+            }<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ethan MacLelland - Engineer | Serial Entrepreneur | Problem Solver</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            line-height: 1.6;
+            color: #333;
+            background: linear-gradient(135deg, #2c3e50 0%, #34495e 100%);
+            min-height: 100vh;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        header {
+            background: rgba(255, 255, 255, 0.1);
+            backdrop-filter: blur(10px);
+            position: fixed;
+            width: 100%;
+            top: 0;
+            z-index: 1000;
+            transition: all 0.3s ease;
+        }
+
+        nav {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 1rem 0;
+        }
+
+        .logo {
+            font-size: 1.5rem;
+            font-weight: bold;
+            color: white;
+        }
+
+        .nav-links {
+            display: flex;
+            list-style: none;
+            gap: 2rem;
+        }
+
+        .nav-links a {
+            color: white;
+            text-decoration: none;
+            transition: color 0.3s ease;
+            position: relative;
+        }
+
+        .nav-links a:hover {
+            color: #3498db;
+        }
+
+        .nav-links a::after {
+            content: '';
+            position: absolute;
+            width: 0;
+            height: 2px;
+            bottom: -5px;
+            left: 0;
+            background-color: #3498db;
+            transition: width 0.3s ease;
+        }
+
+        .nav-links a:hover::after {
+            width: 100%;
+        }
+
+        .hero {
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            color: white;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .hero-content {
+            z-index: 2;
+            animation: fadeInUp 1s ease;
+        }
+
+        .hero h1 {
+            font-size: 3.5rem;
+            margin-bottom: 1rem;
+            background: linear-gradient(45deg, #3498db, #2980b9);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        .hero .subtitle {
+            font-size: 1.5rem;
+            margin-bottom: 1rem;
+            color: #3498db;
+            font-weight: 600;
+        }
+
+        .hero p {
+            font-size: 1.2rem;
+            margin-bottom: 2rem;
+            opacity: 0.9;
+            max-width: 600px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        .cta-button {
+            display: inline-block;
+            background: linear-gradient(45deg, #3498db, #2980b9);
+            color: white;
+            padding: 15px 35px;
+            text-decoration: none;
+            border-radius: 50px;
+            font-weight: bold;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            margin: 0 10px;
+        }
+
+        .cta-button:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 10px 25px rgba(52, 152, 219, 0.3);
+        }
+
+        .cta-button.secondary {
+            background: transparent;
+            border: 2px solid #3498db;
+        }
+
+        .floating-shapes {
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            overflow: hidden;
+            z-index: 1;
+        }
+
+        .shape {
+            position: absolute;
+            background: rgba(52, 152, 219, 0.1);
+            border-radius: 50%;
+            animation: float 6s ease-in-out infinite;
+        }
+
+        .shape:nth-child(1) {
+            width: 100px;
+            height: 100px;
+            top: 20%;
+            left: 10%;
+            animation-delay: 0s;
+        }
+
+        .shape:nth-child(2) {
+            width: 150px;
+            height: 150px;
+            top: 60%;
+            right: 10%;
+            animation-delay: 2s;
+        }
+
+        .shape:nth-child(3) {
+            width: 80px;
+            height: 80px;
+            bottom: 20%;
+            left: 20%;
+            animation-delay: 4s;
+        }
+
+        .section {
+            padding: 80px 0;
+            background: white;
+        }
+
+        .section h2 {
+            text-align: center;
+            font-size: 2.5rem;
+            margin-bottom: 3rem;
+            color: #333;
+            position: relative;
+        }
+
+        .section h2::after {
+            content: '';
+            display: block;
+            width: 80px;
+            height: 4px;
+            background: linear-gradient(45deg, #3498db, #2980b9);
+            margin: 20px auto;
+            border-radius: 2px;
+        }
+
+        .about-content {
+            display: grid;
+            grid-template-columns: 1fr 2fr;
+            gap: 3rem;
+            align-items: center;
+        }
+
+        .profile-image {
+            width: 250px;
+            height: 250px;
+            border-radius: 50%;
+            background: linear-gradient(45deg, #3498db, #2980b9);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 4rem;
+            color: white;
+            margin: 0 auto;
+            transition: transform 0.3s ease;
+            font-weight: bold;
+        }
+
+        .profile-image:hover {
+            transform: scale(1.05);
+        }
+
+        .expertise-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+            margin-top: 2rem;
+        }
+
+        .expertise-card {
+            background: linear-gradient(135deg, #f8f9fa 0%, #e9ecef 100%);
+            padding: 2.5rem;
+            border-radius: 15px;
+            text-align: center;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            border: 1px solid rgba(255, 255, 255, 0.2);
+        }
+
+        .expertise-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.1);
+        }
+
+        .expertise-icon {
+            font-size: 3rem;
+            margin-bottom: 1rem;
+            background: linear-gradient(45deg, #3498db, #2980b9);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        .experience-timeline {
+            max-width: 800px;
+            margin: 0 auto;
+            position: relative;
+        }
+
+        .experience-timeline::before {
+            content: '';
+            position: absolute;
+            left: 50%;
+            top: 0;
+            bottom: 0;
+            width: 2px;
+            background: #3498db;
+            transform: translateX(-50%);
+        }
+
+        .timeline-item {
+            display: flex;
+            margin-bottom: 3rem;
+            position: relative;
+        }
+
+        .timeline-item:nth-child(odd) {
+            flex-direction: row-reverse;
+        }
+
+        .timeline-content {
+            background: white;
+            padding: 2rem;
+            border-radius: 15px;
+            width: 45%;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+            border: 1px solid #e9ecef;
+            position: relative;
+        }
+
+        .timeline-content::before {
+            content: '';
+            position: absolute;
+            top: 20px;
+            width: 0;
+            height: 0;
+            border: 10px solid transparent;
+        }
+
+        .timeline-item:nth-child(odd) .timeline-content::before {
+            left: -20px;
+            border-right-color: white;
+        }
+
+        .timeline-item:nth-child(even) .timeline-content::before {
+            right: -20px;
+            border-left-color: white;
+        }
+
+        .timeline-dot {
+            position: absolute;
+            left: 50%;
+            top: 20px;
+            width: 20px;
+            height: 20px;
+            background: #3498db;
+            border-radius: 50%;
+            transform: translateX(-50%);
+            border: 4px solid white;
+            box-shadow: 0 0 10px rgba(52, 152, 219, 0.3);
+        }
+
+        .timeline-date {
+            color: #3498db;
+            font-weight: bold;
+            font-size: 0.9rem;
+            margin-bottom: 0.5rem;
+        }
+
+        .timeline-title {
+            font-size: 1.3rem;
+            font-weight: bold;
+            margin-bottom: 0.5rem;
+            color: #2c3e50;
+        }
+
+        .timeline-company {
+            color: #7f8c8d;
+            font-weight: 600;
+            margin-bottom: 1rem;
+        }
+
+        .contact-form {
+            max-width: 600px;
+            margin: 0 auto;
+            background: linear-gradient(135f, #f8f9fa 0%, #e9ecef 100%);
+            padding: 3rem;
+            border-radius: 20px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+        }
+
+        .form-group {
+            margin-bottom: 2rem;
+        }
+
+        .form-group label {
+            display: block;
+            margin-bottom: 0.5rem;
+            font-weight: bold;
+            color: #333;
+        }
+
+        .form-group input,
+        .form-group textarea {
+            width: 100%;
+            padding: 12px;
+            border: 2px solid #ddd;
+            border-radius: 10px;
+            font-size: 1rem;
+            transition: border-color 0.3s ease;
+        }
+
+        .form-group input:focus,
+        .form-group textarea:focus {
+            outline: none;
+            border-color: #3498db;
+        }
+
+        .submit-btn {
+            background: linear-gradient(45deg, #3498db, #2980b9);
+            color: white;
+            padding: 12px 30px;
+            border: none;
+            border-radius: 50px;
+            font-size: 1rem;
+            font-weight: bold;
+            cursor: pointer;
+            transition: transform 0.3s ease;
+            width: 100%;
+        }
+
+        .submit-btn:hover {
+            transform: translateY(-2px);
+        }
+
+        footer {
+            background: #2c3e50;
+            color: white;
+            text-align: center;
+            padding: 2rem 0;
+        }
+
+        .social-links {
+            display: flex;
+            justify-content: center;
+            gap: 2rem;
+            margin-bottom: 1rem;
+        }
+
+        .social-links a {
+            color: white;
+            font-size: 1.5rem;
+            transition: color 0.3s ease, transform 0.3s ease;
+            text-decoration: none;
+        }
+
+        .social-links a:hover {
+            color: #3498db;
+            transform: translateY(-3px);
+        }
+
+        .location {
+            color: #3498db;
+            font-size: 1.1rem;
+            margin-bottom: 1rem;
+        }
+
+        .portfolio-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(500px, 1fr));
+            gap: 3rem;
+            margin-top: 3rem;
+        }
+
+        .portfolio-item {
+            background: white;
+            border-radius: 20px;
+            overflow: hidden;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            border: 1px solid #e9ecef;
+        }
+
+        .portfolio-item:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 20px 50px rgba(0, 0, 0, 0.15);
+        }
+
+        .portfolio-item.featured {
+            grid-column: span 1;
+        }
+
+        .portfolio-image {
+            height: 250px;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .portfolio-placeholder {
+            width: 100%;
+            height: 100%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 3rem;
+            background: linear-gradient(135deg, #3498db 0%, #2980b9 100%);
+        }
+
+        .portfolio-overlay {
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: linear-gradient(45deg, rgba(52, 152, 219, 0.9), rgba(41, 128, 185, 0.9));
+            opacity: 0;
+            transition: opacity 0.3s ease;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            text-align: center;
+        }
+
+        .portfolio-item:hover .portfolio-overlay {
+            opacity: 1;
+        }
+
+        .portfolio-details h3 {
+            font-size: 1.5rem;
+            margin-bottom: 0.5rem;
+        }
+
+        .portfolio-details p {
+            font-size: 1.1rem;
+            margin-bottom: 1rem;
+        }
+
+        .portfolio-tag {
+            background: rgba(255, 255, 255, 0.2);
+            padding: 5px 15px;
+            border-radius: 20px;
+            font-size: 0.9rem;
+            font-weight: bold;
+        }
+
+        .portfolio-content {
+            padding: 2rem;
+        }
+
+        .portfolio-content h3 {
+            font-size: 1.4rem;
+            margin-bottom: 0.5rem;
+            color: #2c3e50;
+        }
+
+        .portfolio-date {
+            color: #3498db;
+            font-weight: bold;
+            font-size: 0.9rem;
+            margin-bottom: 1rem;
+        }
+
+        .portfolio-content p {
+            color: #666;
+            line-height: 1.6;
+            margin-bottom: 1.5rem;
+        }
+
+        .portfolio-highlights {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 0.5rem;
+            margin-bottom: 1.5rem;
+        }
+
+        .highlight-tag {
+            background: linear-gradient(45deg, #3498db, #2980b9);
+            color: white;
+            padding: 5px 12px;
+            border-radius: 15px;
+            font-size: 0.8rem;
+            font-weight: bold;
+        }
+
+        .portfolio-link {
+            color: #3498db;
+            text-decoration: none;
+            font-weight: bold;
+            transition: color 0.3s ease;
+        }
+
+        .portfolio-link:hover {
+            color: #2980b9;
+        }
+
+        .origin-story {
+            border: 3px solid #3498db;
+            position: relative;
+        }
+
+        .origin-story::before {
+            content: "ORIGIN STORY";
+            position: absolute;
+            top: -15px;
+            left: 20px;
+            background: white;
+            color: #3498db;
+            padding: 5px 15px;
+            font-size: 0.8rem;
+            font-weight: bold;
+            border-radius: 20px;
+            border: 2px solid #3498db;
+        }
+
+        .brrr-breakdown {
+            background: linear-gradient(135deg, #f8f9fa 0%, #e9ecef 100%);
+            border-radius: 10px;
+            padding: 1.5rem;
+            margin: 1.5rem 0;
+            border-left: 4px solid #3498db;
+        }
+
+        .brrr-step {
+            margin-bottom: 0.8rem;
+            font-size: 0.95rem;
+            line-height: 1.5;
+        }
+
+        .brrr-step:last-child {
+            margin-bottom: 0;
+        }
+
+        .brrr-step strong {
+            color: #3498db;
+            font-weight: bold;
+            display: inline-block;
+            min-width: 80px;
+        }
+
+        .project-links {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 1rem;
+            margin-top: 1rem;
+        }
+
+        .project-links .portfolio-link {
+            flex: 1;
+            min-width: 150px;
+            text-align: center;
+            padding: 8px 12px;
+            background: linear-gradient(45deg, #3498db, #2980b9);
+            color: white !important;
+            border-radius: 20px;
+            text-decoration: none;
+            font-size: 0.9rem;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+
+        .project-links .portfolio-link:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 5px 15px rgba(52, 152, 219, 0.3);
+            color: white !important;
+        }
+
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(50px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        @keyframes float {
+            0%, 100% { transform: translateY(0px); }
+            50% { transform: translateY(-20px); }
+        }
+
+        @media (max-width: 768px) {
+            .nav-links {
+                gap: 1rem;
+            }
+
+            .hero h1 {
+                font-size: 2.5rem;
+            }
+
+            .about-content {
+                grid-template-columns: 1fr;
+                text-align: center;
+            }
+
+            .expertise-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .portfolio-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .portfolio-item.featured {
+                grid-column: span 1;
+            }
+
+            .experience-timeline::before {
+                left: 20px;
+            }
+
+            .timeline-item {
+                flex-direction: column !important;
+            }
+
+            .timeline-content {
+                width: calc(100% - 50px);
+                margin-left: 50px;
+            }
+
+            .timeline-content::before {
+                left: -20px !important;
+                border-right-color: white !important;
+                border-left-color: transparent !important;
+            }
+
+            .timeline-dot {
+                left: 20px;
+                transform: none;
+            }
+
+            .origin-story::before {
+                font-size: 0.7rem;
+                padding: 3px 10px;
+                left: 10px;
+            }
+
+            .brrr-breakdown {
+                padding: 1rem;
+                margin: 1rem 0;
+            }
+
+            .brrr-step strong {
+                display: block;
+                margin-bottom: 0.3rem;
+            }
+
+            .project-links {
+                flex-direction: column;
+            }
+
+            .project-links .portfolio-link {
+                flex: none;
+                min-width: auto;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <nav class="container">
+            <div class="logo">EM</div>
+            <ul class="nav-links">
+                <li><a href="#home">Home</a></li>
+                <li><a href="#about">About</a></li>
+                <li><a href="#expertise">Expertise</a></li>
+                <li><a href="#portfolio">Portfolio</a></li>
+                <li><a href="#experience">Experience</a></li>
+                <li><a href="#contact">Contact</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <main>
+        <section id="home" class="hero">
+            <div class="floating-shapes">
+                <div class="shape"></div>
+                <div class="shape"></div>
+                <div class="shape"></div>
+            </div>
+            <div class="hero-content">
+                <h1>Ethan MacLelland</h1>
+                <div class="subtitle">Engineer | Serial Entrepreneur | Problem Solver</div>
+                <div class="location">📍 Brookline, Massachusetts</div>
+                <p>I'm the kind of mechanical engineer who actually enjoys when people say 'that's impossible'. Give me a complex design challenge or a property renovation that makes contractors shake their heads, and I'm in my element. Currently transforming historic buildings and building real estate value through strategic BRRR investments.</p>
+                <a href="#contact" class="cta-button">Let's Connect</a>
+                <a href="https://www.linkedin.com/in/emaclelland/" class="cta-button secondary" target="_blank">View LinkedIn</a>
+            </div>
+        </section>
+
+        <section id="about" class="section">
+            <div class="container">
+                <h2>About Me</h2>
+                <div class="about-content">
+                    <div class="profile-image">EM</div>
+                    <div>
+                        <p style="font-size: 1.1rem; margin-bottom: 1.5rem;">
+                            There's something deeply satisfying about taking apart complex problems and putting them back together in ways that just work, and work well. My UConn mechanical engineering background gives me the technical foundation, but my real strength comes from seeing opportunities where others see obstacles.
+                        </p>
+                        <p style="font-size: 1.1rem; margin-bottom: 1.5rem;">
+                            My entrepreneurial journey started early - I was buying broken iPods, fixing them up, and flipping them for profit on my family room floor. But real estate captured my attention during my sophomore year at UConn when my Zillow search filters switched from "For Rent" to "For Sale." That's how I discovered The Vinton, a Victorian Tudor that became my first investment property and the foundation of MAC Development Co.
+                        </p>
+                        <p style="font-size: 1.1rem; margin-bottom: 1.5rem;">
+                            Since then, I've dabbled in everything from iOS apps to e-commerce stores to landscaping businesses, and now I run MAC Development Co., specializing in value-add real estate investments using the BRRR strategy. I've also gained valuable field engineering experience managing critical MBTA infrastructure projects, which taught me invaluable lessons about working under pressure and coordinating complex operations.
+                        </p>
+                        <p style="font-size: 1.1rem;">
+                            What drives me isn't just building things that work — it's building things that work better than anyone thought possible. I actively share insights about engineering and entrepreneurship on LinkedIn, reaching thousands of professionals who follow my project updates and industry perspectives.
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="expertise" class="section" style="background: linear-gradient(135deg, #f8f9fa 0%, #e9ecef 100%);">
+            <div class="container">
+                <h2>What I Do</h2>
+                <div class="expertise-grid">
+                    <div class="expertise-card">
+                        <div class="expertise-icon">🏗️</div>
+                        <h3>Real Estate Development</h3>
+                        <p>Specialized in BRRR strategy (Buy, Renovate, Rent, Refinance) for value-add residential and commercial properties, consistently delivering projects on time and under budget.</p>
+                    </div>
+                    <div class="expertise-card">
+                        <div class="expertise-icon">⚙️</div>
+                        <h3>Engineering Solutions</h3>
+                        <p>Mechanical engineering expertise with innovative problem-solving approach, from CAD design to complex project management. Previous experience includes critical infrastructure work on MBTA rail systems.</p>
+                    </div>
+                    <div class="expertise-card">
+                        <div class="expertise-icon">🚀</div>
+                        <h3>Entrepreneurship</h3>
+                        <p>Serial entrepreneur with experience across multiple industries - from tech startups to landscaping businesses, always finding creative ways to create value and build sustainable businesses.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="portfolio" class="section">
+            <div class="container">
+                <h2>Featured Projects</h2>
+                <div class="portfolio-grid">
+                    <div class="portfolio-item featured origin-story">
+                        <div class="portfolio-image">
+                            <div class="portfolio-placeholder" style="background: linear-gradient(135deg, #8B4513 0%, #D2691E 100%); color: white; display: flex; align-items: center; justify-content: center; font-size: 2rem;">🏰</div>
+                            <div class="portfolio-overlay">
+                                <div class="portfolio-details">
+                                    <h3>The Vinton</h3>
+                                    <p>Where It All Began</p>
+                                    <span class="portfolio-tag">First Investment Property</span>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="portfolio-content">
+                            <h3>The Vinton: My First BRRR Success Story</h3>
+                            <p class="portfolio-date">2019 - Present</p>
+                            <p>While searching for off-campus housing at UConn, my Zillow filters switched from "For Rent" to "For Sale." This Victorian-era Tudor became my first property and the foundation of MAC Development Co. Completely transformed from a distressed property into a profitable 6-bedroom, 3-bathroom student rental.</p>
+                            <div class="portfolio-highlights">
+                                <span class="highlight-tag">BRRR Strategy</span>
+                                <span class="highlight-tag">Victorian Restoration</span>
+                                <span class="highlight-tag">Student Housing</span>
+                                <span class="highlight-tag">Portfolio Foundation</span>
+                            </div>
+                            <div class="brrr-breakdown">
+                                <div class="brrr-step">
+                                    <strong>Buy:</strong> Discovered during sophomore year housing search
+                                </div>
+                                <div class="brrr-step">
+                                    <strong>Renovate:</strong> Room-by-room transformation preserving historic charm
+                                </div>
+                                <div class="brrr-step">
+                                    <strong>Rent:</strong> Leased in one day, consistently rented to UConn students
+                                </div>
+                                <div class="brrr-step">
+                                    <strong>Refinance:</strong> Unlocked equity to fund next property acquisition
+                                </div>
+                            </div>
+                            <a href="https://www.linkedin.com/posts/emaclelland_brrr-realestate-realestateinvestment-activity-7274902757940027393-Va_l" target="_blank" class="portfolio-link">Read Full Story →</a>
+                        </div>
+                    </div>
+
+                    <div class="portfolio-item featured">
+                        <div class="portfolio-image">
+                            <div class="portfolio-placeholder" style="background: linear-gradient(135deg, #4A4A4A 0%, #2C2C2C 100%); color: white; display: flex; align-items: center; justify-content: center; font-size: 2rem;">⛪</div>
+                            <div class="portfolio-overlay">
+                                <div class="portfolio-details">
+                                    <h3>887 Stafford Road</h3>
+                                    <p>Historic Church Conversion</p>
+                                    <span class="portfolio-tag">Current Project</span>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="portfolio-content">
+                            <h3>Historic Stone Church Transformation</h3>
+                            <p class="portfolio-date">2025 - Present</p>
+                            <p>My most ambitious project yet - converting a beautiful 1935 stone church building that served the community until 2008 into a modern mixed-use property. This project represents the evolution of my expertise from residential renovations to complex adaptive reuse developments.</p>
+                            <div class="portfolio-highlights">
+                                <span class="highlight-tag">Historic Preservation</span>
+                                <span class="highlight-tag">Adaptive Reuse</span>
+                                <span class="highlight-tag">Stone Restoration</span>
+                                <span class="highlight-tag">Mixed-Use Development</span>
+                            </div>
+                            <a href="https://www.linkedin.com/posts/emaclelland_day-1-at-887-stafford-road-this-stone-activity-7310046311167188993-a0sV" target="_blank" class="portfolio-link">View Project Details →</a>
+                        </div>
+                    </div>
+
+                    <div class="portfolio-item">
+                        <div class="portfolio-image">
+                            <div class="portfolio-placeholder" style="background: linear-gradient(135deg, #FF6B35 0%, #2E7D32 100%); color: white; display: flex; align-items: center; justify-content: center; font-size: 2rem;">🚇</div>
+                            <div class="portfolio-overlay">
+                                <div class="portfolio-details">
+                                    <h3>MBTA Infrastructure</h3>
+                                    <p>Field Engineering Portfolio</p>
+                                    <span class="portfolio-tag">Past Experience</span>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="portfolio-content">
+                            <h3>MBTA Field Engineering Projects</h3>
+                            <p class="portfolio-date">2024 - 2025 | SPS New England</p>
+                            <p>Led critical field engineering operations across multiple MBTA lines during high-stakes shutdown windows. Managed complex track improvement projects, coordinated material logistics, and ensured seamless execution under extreme time constraints across Orange, Green, and other transit lines.</p>
+                            <div class="portfolio-highlights">
+                                <span class="highlight-tag">Orange Line TIP</span>
+                                <span class="highlight-tag">Green Line Shutdown</span>
+                                <span class="highlight-tag">Track Improvements</span>
+                                <span class="highlight-tag">Project Coordination</span>
+                            </div>
+                            <div class="project-links">
+                                <a href="https://www.linkedin.com/posts/emaclelland_tip-boston-mbta-activity-7258988855679225856-61TS" target="_blank" class="portfolio-link">Orange Line Project →</a>
+                                <a href="https://www.linkedin.com/posts/emaclelland_tip-railroadsps-infrastructureinnovation-activity-7246988086696382464-4VNp" target="_blank" class="portfolio-link">Track Innovation →</a>
+                                <a href="https://www.linkedin.com/posts/spsneinc_during-the-mbtas-recent-10-day-green-line-ugcPost-7233926688844181504-1iby" target="_blank" class="portfolio-link">Green Line Shutdown →</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="experience" class="section">
+            <div class="container">
+                <h2>Professional Journey</h2>
+                <div class="experience-timeline">
+                    <div class="timeline-item">
+                        <div class="timeline-content">
+                            <div class="timeline-date">Jan 2025 - Present</div>
+                            <div class="timeline-title">Project Manager</div>
+                            <div class="timeline-company">MAC Development Co.</div>
+                            <p>Leading comprehensive renovation plans and managing the full project lifecycle from acquisition analysis through tenant placement, leveraging engineering background to identify structural opportunities and cost-effective improvements.</p>
+                        </div>
+                        <div class="timeline-dot"></div>
+                    </div>
+                    
+                    <div class="timeline-item">
+                        <div class="timeline-content">
+                            <div class="timeline-date">Apr 2024 - Jan 2025</div>
+                            <div class="timeline-title">Field Engineer</div>
+                            <div class="timeline-company">SPS New England, Inc.</div>
+                            <p>Managed field engineering operations during critical MBTA rail diversion shutdowns across Orange, Green, and other transit lines. Coordinated complex logistics, material delivery, and cost control while working under tight shutdown windows. This experience provided valuable lessons in high-pressure project management and complex stakeholder coordination.</p>
+                        </div>
+                        <div class="timeline-dot"></div>
+                    </div>
+                    
+                    <div class="timeline-item">
+                        <div class="timeline-content">
+                            <div class="timeline-date">Dec 2019 - Present</div>
+                            <div class="timeline-title">Property Manager & Founder</div>
+                            <div class="timeline-company">MAC Development Co.</div>
+                            <p>Founded and operated a real estate investment company specializing in value-add properties. Built a network of skilled subcontractors and established quality standards that became the foundation for scalable operations.</p>
+                        </div>
+                        <div class="timeline-dot"></div>
+                    </div>
+                    
+                    <div class="timeline-item">
+                        <div class="timeline-content">
+                            <div class="timeline-date">May 2019 - Aug 2019</div>
+                            <div class="timeline-title">Engineering Intern</div>
+                            <div class="timeline-company">General Dynamics Electric Boat</div>
+                            <p>Built hands-on engineering skills while collaborating with team members to generate innovative solutions to complex problems. Utilized CAD software and compiled comprehensive test results for management review.</p>
+                        </div>
+                        <div class="timeline-dot"></div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="contact" class="section">
+            <div class="container">
+                <h2>Let's Build Something Together</h2>
+                <form class="contact-form" onsubmit="handleSubmit(event)">
+                    <div class="form-group">
+                        <label for="name">Name</label>
+                        <input type="text" id="name" name="name" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="email">Email</label>
+                        <input type="email" id="email" name="email" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="project">Project Type</label>
+                        <select id="project" name="project" style="width: 100%; padding: 12px; border: 2px solid #ddd; border-radius: 10px; font-size: 1rem;">
+                            <option value="">Select a project type</option>
+                            <option value="real-estate">Real Estate Development</option>
+                            <option value="engineering">Engineering Consultation</option>
+                            <option value="entrepreneurship">Business Collaboration</option>
+                            <option value="other">Other</option>
+                        </select>
+                    </div>
+                    <div class="form-group">
+                        <label for="message">Tell me about your project</label>
+                        <textarea id="message" name="message" rows="5" required placeholder="Describe your challenge or opportunity..."></textarea>
+                    </div>
+                    <button type="submit" class="submit-btn">Send Message</button>
+                </form>
+            </div>
+        </section>
+    </main>
+
+    <footer>
+        <div class="container">
+            <div class="social-links">
+                <a href="https://www.linkedin.com/in/emaclelland/" target="_blank" title="LinkedIn">LinkedIn</a>
+                <a href="mailto:ethan@macdevelopmentco.com" title="Email">Email</a>
+            </div>
+            <p>&copy; 2025 Ethan MacLelland. All rights reserved.</p>
+        </div>
+    </footer>
+
+    <script>
+        // Smooth scrolling for navigation links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    target.scrollIntoView({
+                        behavior: 'smooth',
+                        block: 'start'
+                    });
+                }
+            });
+        });
+
+        // Header background on scroll
+        window.addEventListener('scroll', () => {
+            const header = document.querySelector('header');
+            if (window.scrollY > 100) {
+                header.style.background = 'rgba(255, 255, 255, 0.95)';
+                header.querySelectorAll('a, .logo').forEach(el => {
+                    el.style.color = '#333';
+                });
+            } else {
+                header.style.background = 'rgba(255, 255, 255, 0.1)';
+                header.querySelectorAll('a, .logo').forEach(el => {
+                    el.style.color = 'white';
+                });
+            }
+        });
+
+        // Form submission handler
+        function handleSubmit(event) {
+            event.preventDefault();
+            const formData = new FormData(event.target);
+            const data = Object.fromEntries(formData);
+            
+            // Simulate form submission
+            alert(`Thank you, ${data.name}! Your message about ${data.project || 'your project'} has been received. I'll get back to you soon to discuss how we can tackle this challenge together!`);
+            event.target.reset();
+        }
+
+        // Add animation on scroll
+        const observerOptions = {
+            threshold: 0.1,
+            rootMargin: '0px 0px -50px 0px'
+        };
+
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.style.animation = 'fadeInUp 0.8s ease forwards';
+                }
+            });
+        }, observerOptions);
+
+        // Observe expertise cards, portfolio items, and timeline items
+        document.querySelectorAll('.expertise-card, .portfolio-item, .timeline-item').forEach(item => {
+            observer.observe(item);
+        });
+    </script>
+</body>
+</html>
