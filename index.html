@@ -1,1073 +1,257 @@
-            .origin-story::before {
-                font-size: 0.7rem;
-                padding: 3px 10px;
-                left: 10px;
-            }
-
-            .brrr-breakdown {
-                padding: 1rem;
-                margin: 1rem 0;
-            }
-
-            .brrr-step strong {
-                display: block;
-                margin-bottom: 0.3rem;
-            }<!DOCTYPE html>
+<!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Ethan MacLelland - Engineer | Serial Entrepreneur | Problem Solver</title>
-    <style>
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-        }
-
-        body {
-            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-            line-height: 1.6;
-            color: #333;
-            background: linear-gradient(135deg, #2c3e50 0%, #34495e 100%);
-            min-height: 100vh;
-        }
-
-        .container {
-            max-width: 1200px;
-            margin: 0 auto;
-            padding: 0 20px;
-        }
-
-        header {
-            background: rgba(255, 255, 255, 0.1);
-            backdrop-filter: blur(10px);
-            position: fixed;
-            width: 100%;
-            top: 0;
-            z-index: 1000;
-            transition: all 0.3s ease;
-        }
-
-        nav {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            padding: 1rem 0;
-        }
-
-        .logo {
-            font-size: 1.5rem;
-            font-weight: bold;
-            color: white;
-        }
-
-        .nav-links {
-            display: flex;
-            list-style: none;
-            gap: 2rem;
-        }
-
-        .nav-links a {
-            color: white;
-            text-decoration: none;
-            transition: color 0.3s ease;
-            position: relative;
-        }
-
-        .nav-links a:hover {
-            color: #3498db;
-        }
-
-        .nav-links a::after {
-            content: '';
-            position: absolute;
-            width: 0;
-            height: 2px;
-            bottom: -5px;
-            left: 0;
-            background-color: #3498db;
-            transition: width 0.3s ease;
-        }
-
-        .nav-links a:hover::after {
-            width: 100%;
-        }
-
-        .hero {
-            min-height: 100vh;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            text-align: center;
-            color: white;
-            position: relative;
-            overflow: hidden;
-        }
-
-        .hero-content {
-            z-index: 2;
-            animation: fadeInUp 1s ease;
-        }
-
-        .hero h1 {
-            font-size: 3.5rem;
-            margin-bottom: 1rem;
-            background: linear-gradient(45deg, #3498db, #2980b9);
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-            background-clip: text;
-        }
-
-        .hero .subtitle {
-            font-size: 1.5rem;
-            margin-bottom: 1rem;
-            color: #3498db;
-            font-weight: 600;
-        }
-
-        .hero p {
-            font-size: 1.2rem;
-            margin-bottom: 2rem;
-            opacity: 0.9;
-            max-width: 600px;
-            margin-left: auto;
-            margin-right: auto;
-        }
-
-        .cta-button {
-            display: inline-block;
-            background: linear-gradient(45deg, #3498db, #2980b9);
-            color: white;
-            padding: 15px 35px;
-            text-decoration: none;
-            border-radius: 50px;
-            font-weight: bold;
-            transition: transform 0.3s ease, box-shadow 0.3s ease;
-            margin: 0 10px;
-        }
-
-        .cta-button:hover {
-            transform: translateY(-3px);
-            box-shadow: 0 10px 25px rgba(52, 152, 219, 0.3);
-        }
-
-        .cta-button.secondary {
-            background: transparent;
-            border: 2px solid #3498db;
-        }
-
-        .floating-shapes {
-            position: absolute;
-            width: 100%;
-            height: 100%;
-            overflow: hidden;
-            z-index: 1;
-        }
-
-        .shape {
-            position: absolute;
-            background: rgba(52, 152, 219, 0.1);
-            border-radius: 50%;
-            animation: float 6s ease-in-out infinite;
-        }
-
-        .shape:nth-child(1) {
-            width: 100px;
-            height: 100px;
-            top: 20%;
-            left: 10%;
-            animation-delay: 0s;
-        }
-
-        .shape:nth-child(2) {
-            width: 150px;
-            height: 150px;
-            top: 60%;
-            right: 10%;
-            animation-delay: 2s;
-        }
-
-        .shape:nth-child(3) {
-            width: 80px;
-            height: 80px;
-            bottom: 20%;
-            left: 20%;
-            animation-delay: 4s;
-        }
-
-        .section {
-            padding: 80px 0;
-            background: white;
-        }
-
-        .section h2 {
-            text-align: center;
-            font-size: 2.5rem;
-            margin-bottom: 3rem;
-            color: #333;
-            position: relative;
-        }
-
-        .section h2::after {
-            content: '';
-            display: block;
-            width: 80px;
-            height: 4px;
-            background: linear-gradient(45deg, #3498db, #2980b9);
-            margin: 20px auto;
-            border-radius: 2px;
-        }
-
-        .about-content {
-            display: grid;
-            grid-template-columns: 1fr 2fr;
-            gap: 3rem;
-            align-items: center;
-        }
-
-        .profile-image {
-            width: 250px;
-            height: 250px;
-            border-radius: 50%;
-            background: linear-gradient(45deg, #3498db, #2980b9);
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            font-size: 4rem;
-            color: white;
-            margin: 0 auto;
-            transition: transform 0.3s ease;
-            font-weight: bold;
-        }
-
-        .profile-image:hover {
-            transform: scale(1.05);
-        }
-
-        .expertise-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-            gap: 2rem;
-            margin-top: 2rem;
-        }
-
-        .expertise-card {
-            background: linear-gradient(135deg, #f8f9fa 0%, #e9ecef 100%);
-            padding: 2.5rem;
-            border-radius: 15px;
-            text-align: center;
-            transition: transform 0.3s ease, box-shadow 0.3s ease;
-            border: 1px solid rgba(255, 255, 255, 0.2);
-        }
-
-        .expertise-card:hover {
-            transform: translateY(-10px);
-            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.1);
-        }
-
-        .expertise-icon {
-            font-size: 3rem;
-            margin-bottom: 1rem;
-            background: linear-gradient(45deg, #3498db, #2980b9);
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-            background-clip: text;
-        }
-
-        .experience-timeline {
-            max-width: 800px;
-            margin: 0 auto;
-            position: relative;
-        }
-
-        .experience-timeline::before {
-            content: '';
-            position: absolute;
-            left: 50%;
-            top: 0;
-            bottom: 0;
-            width: 2px;
-            background: #3498db;
-            transform: translateX(-50%);
-        }
-
-        .timeline-item {
-            display: flex;
-            margin-bottom: 3rem;
-            position: relative;
-        }
-
-        .timeline-item:nth-child(odd) {
-            flex-direction: row-reverse;
-        }
-
-        .timeline-content {
-            background: white;
-            padding: 2rem;
-            border-radius: 15px;
-            width: 45%;
-            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
-            border: 1px solid #e9ecef;
-            position: relative;
-        }
-
-        .timeline-content::before {
-            content: '';
-            position: absolute;
-            top: 20px;
-            width: 0;
-            height: 0;
-            border: 10px solid transparent;
-        }
-
-        .timeline-item:nth-child(odd) .timeline-content::before {
-            left: -20px;
-            border-right-color: white;
-        }
-
-        .timeline-item:nth-child(even) .timeline-content::before {
-            right: -20px;
-            border-left-color: white;
-        }
-
-        .timeline-dot {
-            position: absolute;
-            left: 50%;
-            top: 20px;
-            width: 20px;
-            height: 20px;
-            background: #3498db;
-            border-radius: 50%;
-            transform: translateX(-50%);
-            border: 4px solid white;
-            box-shadow: 0 0 10px rgba(52, 152, 219, 0.3);
-        }
-
-        .timeline-date {
-            color: #3498db;
-            font-weight: bold;
-            font-size: 0.9rem;
-            margin-bottom: 0.5rem;
-        }
-
-        .timeline-title {
-            font-size: 1.3rem;
-            font-weight: bold;
-            margin-bottom: 0.5rem;
-            color: #2c3e50;
-        }
-
-        .timeline-company {
-            color: #7f8c8d;
-            font-weight: 600;
-            margin-bottom: 1rem;
-        }
-
-        .contact-form {
-            max-width: 600px;
-            margin: 0 auto;
-            background: linear-gradient(135f, #f8f9fa 0%, #e9ecef 100%);
-            padding: 3rem;
-            border-radius: 20px;
-            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
-        }
-
-        .form-group {
-            margin-bottom: 2rem;
-        }
-
-        .form-group label {
-            display: block;
-            margin-bottom: 0.5rem;
-            font-weight: bold;
-            color: #333;
-        }
-
-        .form-group input,
-        .form-group textarea {
-            width: 100%;
-            padding: 12px;
-            border: 2px solid #ddd;
-            border-radius: 10px;
-            font-size: 1rem;
-            transition: border-color 0.3s ease;
-        }
-
-        .form-group input:focus,
-        .form-group textarea:focus {
-            outline: none;
-            border-color: #3498db;
-        }
-
-        .submit-btn {
-            background: linear-gradient(45deg, #3498db, #2980b9);
-            color: white;
-            padding: 12px 30px;
-            border: none;
-            border-radius: 50px;
-            font-size: 1rem;
-            font-weight: bold;
-            cursor: pointer;
-            transition: transform 0.3s ease;
-            width: 100%;
-        }
-
-        .submit-btn:hover {
-            transform: translateY(-2px);
-        }
-
-        footer {
-            background: #2c3e50;
-            color: white;
-            text-align: center;
-            padding: 2rem 0;
-        }
-
-        .social-links {
-            display: flex;
-            justify-content: center;
-            gap: 2rem;
-            margin-bottom: 1rem;
-        }
-
-        .social-links a {
-            color: white;
-            font-size: 1.5rem;
-            transition: color 0.3s ease, transform 0.3s ease;
-            text-decoration: none;
-        }
-
-        .social-links a:hover {
-            color: #3498db;
-            transform: translateY(-3px);
-        }
-
-        .location {
-            color: #3498db;
-            font-size: 1.1rem;
-            margin-bottom: 1rem;
-        }
-
-        .portfolio-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(500px, 1fr));
-            gap: 3rem;
-            margin-top: 3rem;
-        }
-
-        .portfolio-item {
-            background: white;
-            border-radius: 20px;
-            overflow: hidden;
-            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
-            transition: transform 0.3s ease, box-shadow 0.3s ease;
-            border: 1px solid #e9ecef;
-        }
-
-        .portfolio-item:hover {
-            transform: translateY(-10px);
-            box-shadow: 0 20px 50px rgba(0, 0, 0, 0.15);
-        }
-
-        .portfolio-item.featured {
-            grid-column: span 1;
-        }
-
-        .portfolio-image {
-            height: 250px;
-            position: relative;
-            overflow: hidden;
-        }
-
-        .portfolio-placeholder {
-            width: 100%;
-            height: 100%;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            font-size: 3rem;
-            background: linear-gradient(135deg, #3498db 0%, #2980b9 100%);
-        }
-
-        .portfolio-overlay {
-            position: absolute;
-            top: 0;
-            left: 0;
-            right: 0;
-            bottom: 0;
-            background: linear-gradient(45deg, rgba(52, 152, 219, 0.9), rgba(41, 128, 185, 0.9));
-            opacity: 0;
-            transition: opacity 0.3s ease;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            color: white;
-            text-align: center;
-        }
-
-        .portfolio-item:hover .portfolio-overlay {
-            opacity: 1;
-        }
-
-        .portfolio-details h3 {
-            font-size: 1.5rem;
-            margin-bottom: 0.5rem;
-        }
-
-        .portfolio-details p {
-            font-size: 1.1rem;
-            margin-bottom: 1rem;
-        }
-
-        .portfolio-tag {
-            background: rgba(255, 255, 255, 0.2);
-            padding: 5px 15px;
-            border-radius: 20px;
-            font-size: 0.9rem;
-            font-weight: bold;
-        }
-
-        .portfolio-content {
-            padding: 2rem;
-        }
-
-        .portfolio-content h3 {
-            font-size: 1.4rem;
-            margin-bottom: 0.5rem;
-            color: #2c3e50;
-        }
-
-        .portfolio-date {
-            color: #3498db;
-            font-weight: bold;
-            font-size: 0.9rem;
-            margin-bottom: 1rem;
-        }
-
-        .portfolio-content p {
-            color: #666;
-            line-height: 1.6;
-            margin-bottom: 1.5rem;
-        }
-
-        .portfolio-highlights {
-            display: flex;
-            flex-wrap: wrap;
-            gap: 0.5rem;
-            margin-bottom: 1.5rem;
-        }
-
-        .highlight-tag {
-            background: linear-gradient(45deg, #3498db, #2980b9);
-            color: white;
-            padding: 5px 12px;
-            border-radius: 15px;
-            font-size: 0.8rem;
-            font-weight: bold;
-        }
-
-        .portfolio-link {
-            color: #3498db;
-            text-decoration: none;
-            font-weight: bold;
-            transition: color 0.3s ease;
-        }
-
-        .portfolio-link:hover {
-            color: #2980b9;
-        }
-
-        .origin-story {
-            border: 3px solid #3498db;
-            position: relative;
-        }
-
-        .origin-story::before {
-            content: "ORIGIN STORY";
-            position: absolute;
-            top: -15px;
-            left: 20px;
-            background: white;
-            color: #3498db;
-            padding: 5px 15px;
-            font-size: 0.8rem;
-            font-weight: bold;
-            border-radius: 20px;
-            border: 2px solid #3498db;
-        }
-
-        .brrr-breakdown {
-            background: linear-gradient(135deg, #f8f9fa 0%, #e9ecef 100%);
-            border-radius: 10px;
-            padding: 1.5rem;
-            margin: 1.5rem 0;
-            border-left: 4px solid #3498db;
-        }
-
-        .brrr-step {
-            margin-bottom: 0.8rem;
-            font-size: 0.95rem;
-            line-height: 1.5;
-        }
-
-        .brrr-step:last-child {
-            margin-bottom: 0;
-        }
-
-        .brrr-step strong {
-            color: #3498db;
-            font-weight: bold;
-            display: inline-block;
-            min-width: 80px;
-        }
-
-        .project-links {
-            display: flex;
-            flex-wrap: wrap;
-            gap: 1rem;
-            margin-top: 1rem;
-        }
-
-        .project-links .portfolio-link {
-            flex: 1;
-            min-width: 150px;
-            text-align: center;
-            padding: 8px 12px;
-            background: linear-gradient(45deg, #3498db, #2980b9);
-            color: white !important;
-            border-radius: 20px;
-            text-decoration: none;
-            font-size: 0.9rem;
-            transition: transform 0.3s ease, box-shadow 0.3s ease;
-        }
-
-        .project-links .portfolio-link:hover {
-            transform: translateY(-2px);
-            box-shadow: 0 5px 15px rgba(52, 152, 219, 0.3);
-            color: white !important;
-        }
-
-        @keyframes fadeInUp {
-            from {
-                opacity: 0;
-                transform: translateY(50px);
-            }
-            to {
-                opacity: 1;
-                transform: translateY(0);
-            }
-        }
-
-        @keyframes float {
-            0%, 100% { transform: translateY(0px); }
-            50% { transform: translateY(-20px); }
-        }
-
-        @media (max-width: 768px) {
-            .nav-links {
-                gap: 1rem;
-            }
-
-            .hero h1 {
-                font-size: 2.5rem;
-            }
-
-            .about-content {
-                grid-template-columns: 1fr;
-                text-align: center;
-            }
-
-            .expertise-grid {
-                grid-template-columns: 1fr;
-            }
-
-            .portfolio-grid {
-                grid-template-columns: 1fr;
-            }
-
-            .portfolio-item.featured {
-                grid-column: span 1;
-            }
-
-            .experience-timeline::before {
-                left: 20px;
-            }
-
-            .timeline-item {
-                flex-direction: column !important;
-            }
-
-            .timeline-content {
-                width: calc(100% - 50px);
-                margin-left: 50px;
-            }
-
-            .timeline-content::before {
-                left: -20px !important;
-                border-right-color: white !important;
-                border-left-color: transparent !important;
-            }
-
-            .timeline-dot {
-                left: 20px;
-                transform: none;
-            }
-
-            .origin-story::before {
-                font-size: 0.7rem;
-                padding: 3px 10px;
-                left: 10px;
-            }
-
-            .brrr-breakdown {
-                padding: 1rem;
-                margin: 1rem 0;
-            }
-
-            .brrr-step strong {
-                display: block;
-                margin-bottom: 0.3rem;
-            }
-
-            .project-links {
-                flex-direction: column;
-            }
-
-            .project-links .portfolio-link {
-                flex: none;
-                min-width: auto;
-            }
-        }
-    </style>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Ethan MacLelland</title>
+<link href="https://fonts.googleapis.com/css2?family=Space+Mono:wght@400;700&family=Bebas+Neue&family=DM+Sans:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+html { background: #0a1628; scroll-behavior: smooth; }
+body { background: #0a1628; color: #ffffff; font-family: 'DM Sans', sans-serif; font-size: 16px; line-height: 1.7; margin: 0; padding: 0; overflow-x: hidden; min-height: 100vh; }
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+.page-bg { position: fixed; inset: 0; z-index: 0; background: #0a1628; background-image: linear-gradient(rgba(91,184,255,0.06) 1px, transparent 1px), linear-gradient(90deg, rgba(91,184,255,0.06) 1px, transparent 1px), linear-gradient(rgba(91,184,255,0.02) 1px, transparent 1px), linear-gradient(90deg, rgba(91,184,255,0.02) 1px, transparent 1px); background-size: 100px 100px, 100px 100px, 20px 20px, 20px 20px; pointer-events: none; }
+.wrap { position: relative; z-index: 1; }
+
+/* NAV */
+nav { position: fixed; top: 0; left: 0; right: 0; z-index: 200; height: 66px; display: flex; align-items: center; justify-content: space-between; padding: 0 48px; background: #060e1c; border-bottom: 1px solid rgba(91,184,255,0.25); }
+.nav-logo { font-family: 'Bebas Neue', sans-serif; font-size: 28px; letter-spacing: 5px; color: #5bb8ff; }
+.nav-links { display: flex; gap: 32px; list-style: none; }
+.nav-links a { font-family: 'Space Mono', monospace; font-size: 11px; letter-spacing: 2px; text-transform: uppercase; color: #ffffff; text-decoration: none; }
+.nav-links a:hover { color: #5bb8ff; }
+.nav-cta { font-family: 'Space Mono', monospace; font-size: 11px; letter-spacing: 2px; text-transform: uppercase; padding: 10px 22px; background: #5bb8ff; color: #0a1628; font-weight: 700; text-decoration: none; clip-path: polygon(0 0,calc(100% - 8px) 0,100% 8px,100% 100%,8px 100%,0 calc(100% - 8px)); }
+.nav-cta:hover { background: #ffffff; }
+
+/* HERO */
+.hero { min-height: 100vh; padding-top: 66px; display: grid; grid-template-columns: 1fr 360px; background: #0a1628; }
+.hero-left { display: flex; flex-direction: column; justify-content: center; padding: 80px 60px 80px 48px; border-right: 1px solid rgba(91,184,255,0.2); }
+.hero-kicker { display: flex; align-items: center; gap: 12px; font-family: 'Space Mono', monospace; font-size: 11px; letter-spacing: 3px; text-transform: uppercase; color: #ff7240; margin-bottom: 28px; font-weight: 700; }
+.hero-kicker::before { content: ''; width: 32px; height: 2px; background: #ff7240; flex-shrink: 0; }
+.hero-name { font-family: 'Bebas Neue', sans-serif; font-size: clamp(72px,9vw,124px); line-height: 0.88; letter-spacing: 2px; color: #ffffff; margin-bottom: 4px; }
+.hero-name-sub { font-family: 'Bebas Neue', sans-serif; font-size: clamp(40px,5vw,70px); color: #5bb8ff; letter-spacing: 4px; line-height: 1; margin-bottom: 20px; display: block; }
+.hero-subtitle { font-family: 'Space Mono', monospace; font-size: 11px; letter-spacing: 2px; text-transform: uppercase; color: #a8c4e0; margin-bottom: 36px; }
+.hero-desc { font-size: 17px; line-height: 1.85; color: #ffffff; font-weight: 400; max-width: 520px; margin-bottom: 48px; }
+.hero-desc strong { color: #5bb8ff; font-weight: 600; }
+.hero-btns { display: flex; gap: 14px; flex-wrap: wrap; }
+.btn-fill { display: inline-block; padding: 14px 36px; background: #5bb8ff; color: #0a1628; font-family: 'Space Mono', monospace; font-size: 11px; letter-spacing: 2px; text-transform: uppercase; font-weight: 700; text-decoration: none; clip-path: polygon(0 0,calc(100% - 10px) 0,100% 10px,100% 100%,10px 100%,0 calc(100% - 10px)); }
+.btn-fill:hover { background: #ffffff; }
+.btn-outline { display: inline-block; padding: 14px 36px; border: 1px solid rgba(255,255,255,0.4); color: #ffffff; font-family: 'Space Mono', monospace; font-size: 11px; letter-spacing: 2px; text-transform: uppercase; text-decoration: none; }
+.btn-outline:hover { border-color: #5bb8ff; color: #5bb8ff; }
+.hero-right { display: flex; flex-direction: column; justify-content: center; padding: 80px 40px; background: #0a1628; }
+.stat-block { padding: 30px 0; border-bottom: 1px solid rgba(91,184,255,0.2); }
+.stat-block:first-child { border-top: 1px solid rgba(91,184,255,0.2); }
+.stat-number { font-family: 'Bebas Neue', sans-serif; font-size: 66px; line-height: 1; color: #ffffff; letter-spacing: 2px; margin-bottom: 6px; }
+.stat-number em { color: #5bb8ff; font-style: normal; }
+.stat-label { font-family: 'Space Mono', monospace; font-size: 11px; letter-spacing: 2px; text-transform: uppercase; color: #a8c4e0; }
+.hero-location { margin-top: 32px; display: flex; align-items: center; gap: 10px; font-family: 'Space Mono', monospace; font-size: 11px; letter-spacing: 2px; text-transform: uppercase; color: #a8c4e0; }
+.loc-dot { width: 8px; height: 8px; border-radius: 50%; background: #ff7240; flex-shrink: 0; animation: pulse 2.5s ease-in-out infinite; }
+@keyframes pulse { 0%,100%{opacity:1;} 50%{opacity:0.35;} }
+
+/* SECTIONS */
+.section { background: #0a1628; padding: 96px 48px; border-top: 1px solid rgba(91,184,255,0.2); }
+.section-header { display: flex; align-items: baseline; gap: 20px; margin-bottom: 56px; }
+.section-num { font-family: 'Space Mono', monospace; font-size: 11px; letter-spacing: 3px; text-transform: uppercase; color: #5bb8ff; font-weight: 700; }
+.section-title { font-family: 'Bebas Neue', sans-serif; font-size: clamp(48px,6vw,76px); letter-spacing: 3px; color: #ffffff; line-height: 1; }
+
+/* ABOUT */
+.about-grid { display: grid; grid-template-columns: 1fr 300px; gap: 64px; align-items: start; }
+.about-text p { font-size: 16px; line-height: 1.9; color: #ffffff; font-weight: 400; margin-bottom: 22px; }
+.about-text p:last-child { margin-bottom: 0; }
+.about-text strong { color: #5bb8ff; font-weight: 600; }
+.aside-cards { display: flex; flex-direction: column; gap: 3px; }
+.aside-card { background: #0e1c34; border: 1px solid rgba(91,184,255,0.2); padding: 22px 24px; }
+.aside-card:hover { border-color: #5bb8ff; }
+.aside-card-label { font-family: 'Space Mono', monospace; font-size: 10px; letter-spacing: 2px; text-transform: uppercase; color: #5bb8ff; margin-bottom: 8px; font-weight: 700; }
+.aside-card-value { font-size: 15px; color: #ffffff; font-weight: 400; line-height: 1.5; }
+
+/* EXPERTISE */
+.expertise-grid { display: grid; grid-template-columns: repeat(3,1fr); gap: 3px; }
+.exp-card { background: #0e1c34; border: 1px solid rgba(91,184,255,0.2); padding: 44px 34px; position: relative; overflow: hidden; }
+.exp-card:hover { border-color: #5bb8ff; background: #132540; }
+.exp-card-bg-num { font-family: 'Bebas Neue', sans-serif; font-size: 110px; color: rgba(91,184,255,0.05); position: absolute; top: 8px; right: 12px; line-height: 1; user-select: none; pointer-events: none; }
+.exp-icon { font-size: 36px; margin-bottom: 22px; display: block; }
+.exp-title { font-family: 'Bebas Neue', sans-serif; font-size: 28px; letter-spacing: 1.5px; color: #ffffff; margin-bottom: 14px; line-height: 1; }
+.exp-desc { font-size: 15px; line-height: 1.8; color: #ffffff; font-weight: 400; }
+
+/* PORTFOLIO */
+.portfolio-list { display: flex; flex-direction: column; gap: 3px; }
+.proj-row { display: grid; grid-template-columns: 60px 1fr auto; gap: 32px; align-items: center; padding: 28px 32px; background: #0e1c34; border: 1px solid rgba(91,184,255,0.2); cursor: pointer; position: relative; }
+.proj-row:hover { border-color: #5bb8ff; background: #132540; }
+.proj-num { font-family: 'Bebas Neue', sans-serif; font-size: 40px; color: rgba(91,184,255,0.35); line-height: 1; }
+.proj-row:hover .proj-num { color: #5bb8ff; }
+.proj-title { font-family: 'Bebas Neue', sans-serif; font-size: 28px; letter-spacing: 1.5px; color: #ffffff; margin-bottom: 5px; line-height: 1; }
+.proj-meta { font-family: 'Space Mono', monospace; font-size: 11px; letter-spacing: 1.5px; text-transform: uppercase; color: #a8c4e0; }
+.proj-meta .date { color: #ff7240; margin-right: 10px; font-weight: 700; }
+.proj-badge { font-family: 'Space Mono', monospace; font-size: 10px; letter-spacing: 1px; text-transform: uppercase; padding: 7px 14px; border: 1px solid #5bb8ff; color: #5bb8ff; white-space: nowrap; font-weight: 700; }
+
+/* TIMELINE */
+.timeline { position: relative; padding-left: 36px; }
+.timeline::before { content: ''; position: absolute; left: 0; top: 0; bottom: 0; width: 1px; background: rgba(91,184,255,0.2); }
+.tl-item { position: relative; padding: 0 0 52px 48px; }
+.tl-item:last-child { padding-bottom: 0; }
+.tl-dot { position: absolute; left: -5px; top: 8px; width: 11px; height: 11px; border: 2px solid #5bb8ff; background: #0a1628; transform: rotate(45deg); }
+.tl-item:hover .tl-dot { background: #5bb8ff; }
+.tl-period { font-family: 'Space Mono', monospace; font-size: 11px; letter-spacing: 2px; text-transform: uppercase; color: #ff7240; margin-bottom: 10px; font-weight: 700; }
+.tl-role { font-family: 'Bebas Neue', sans-serif; font-size: 30px; letter-spacing: 1.5px; color: #ffffff; margin-bottom: 4px; line-height: 1; }
+.tl-company { font-family: 'Space Mono', monospace; font-size: 12px; letter-spacing: 1.5px; text-transform: uppercase; color: #5bb8ff; margin-bottom: 14px; font-weight: 700; }
+.tl-desc { font-size: 15px; line-height: 1.85; color: #ffffff; font-weight: 400; max-width: 640px; }
+
+/* CONTACT */
+.contact-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 72px; align-items: start; }
+.contact-heading { font-family: 'Bebas Neue', sans-serif; font-size: 52px; letter-spacing: 2px; color: #ffffff; line-height: 1; margin-bottom: 20px; }
+.contact-body { font-size: 16px; line-height: 1.85; color: #ffffff; font-weight: 400; margin-bottom: 32px; }
+.contact-links { display: flex; flex-direction: column; gap: 10px; }
+.contact-link { display: flex; align-items: center; gap: 14px; padding: 16px 20px; background: #0e1c34; border: 1px solid rgba(91,184,255,0.2); text-decoration: none; color: #ffffff; font-family: 'Space Mono', monospace; font-size: 12px; letter-spacing: 1.5px; text-transform: uppercase; }
+.contact-link:hover { border-color: #5bb8ff; background: #132540; color: #5bb8ff; }
+.contact-icon { font-size: 18px; }
+.form-group { margin-bottom: 18px; }
+.form-label { display: block; font-family: 'Space Mono', monospace; font-size: 11px; letter-spacing: 2px; text-transform: uppercase; color: #a8c4e0; margin-bottom: 8px; font-weight: 700; }
+.form-input, .form-textarea, .form-select { width: 100%; padding: 13px 16px; background: #0e1c34; border: 1px solid rgba(91,184,255,0.25); color: #ffffff; font-family: 'DM Sans', sans-serif; font-size: 15px; font-weight: 400; outline: none; -webkit-appearance: none; appearance: none; }
+.form-input::placeholder, .form-textarea::placeholder { color: #4a7aaa; }
+.form-input:focus, .form-textarea:focus, .form-select:focus { border-color: #5bb8ff; background: #132540; }
+.form-textarea { height: 130px; resize: none; }
+.form-select option { background: #0e1c34; color: #ffffff; }
+.form-submit { width: 100%; padding: 15px; background: #5bb8ff; color: #0a1628; font-family: 'Space Mono', monospace; font-size: 12px; letter-spacing: 2px; text-transform: uppercase; font-weight: 700; border: none; cursor: pointer; clip-path: polygon(0 0,calc(100% - 10px) 0,100% 10px,100% 100%,10px 100%,0 calc(100% - 10px)); }
+.form-submit:hover { background: #ffffff; }
+
+/* FOOTER */
+footer { background: #060e1c; border-top: 1px solid rgba(91,184,255,0.2); padding: 28px 48px; display: flex; justify-content: space-between; align-items: center; }
+.footer-copy { font-family: 'Space Mono', monospace; font-size: 11px; letter-spacing: 1.5px; text-transform: uppercase; color: #a8c4e0; }
+.footer-links { display: flex; gap: 28px; }
+.footer-links a { font-family: 'Space Mono', monospace; font-size: 11px; letter-spacing: 1.5px; text-transform: uppercase; color: #5bb8ff; text-decoration: none; font-weight: 700; }
+.footer-links a:hover { color: #ffffff; }
+
+/* REVEAL */
+.reveal { opacity: 0; transform: translateY(22px); transition: opacity 0.55s ease, transform 0.55s ease; }
+.reveal.in { opacity: 1; transform: none; }
+
+/* MOBILE */
+@media (max-width: 768px) {
+  nav { padding: 0 20px; }
+  .nav-links, .nav-cta { display: none; }
+  .hero { grid-template-columns: 1fr; }
+  .hero-left { padding: 56px 20px 40px; border-right: none; border-bottom: 1px solid rgba(91,184,255,0.2); }
+  .hero-right { padding: 40px 20px; }
+  .hero-name { font-size: 68px; }
+  .hero-name-sub { font-size: 42px; }
+  .section { padding: 60px 20px; }
+  .about-grid { grid-template-columns: 1fr; gap: 40px; }
+  .expertise-grid { grid-template-columns: 1fr; }
+  .proj-row { grid-template-columns: 48px 1fr; }
+  .proj-badge { display: none; }
+  .contact-grid { grid-template-columns: 1fr; gap: 48px; }
+  footer { flex-direction: column; gap: 16px; padding: 24px 20px; text-align: center; }
+}
+</style>
 </head>
 <body>
-    <header>
-        <nav class="container">
-            <div class="logo">EM</div>
-            <ul class="nav-links">
-                <li><a href="#home">Home</a></li>
-                <li><a href="#about">About</a></li>
-                <li><a href="#expertise">Expertise</a></li>
-                <li><a href="#portfolio">Portfolio</a></li>
-                <li><a href="#experience">Experience</a></li>
-                <li><a href="#contact">Contact</a></li>
-            </ul>
-        </nav>
-    </header>
+<div class="page-bg"></div>
+<div class="wrap">
 
-    <main>
-        <section id="home" class="hero">
-            <div class="floating-shapes">
-                <div class="shape"></div>
-                <div class="shape"></div>
-                <div class="shape"></div>
-            </div>
-            <div class="hero-content">
-                <h1>Ethan MacLelland</h1>
-                <div class="subtitle">Engineer | Serial Entrepreneur | Problem Solver</div>
-                <div class="location">📍 Brookline, Massachusetts</div>
-                <p>I'm the kind of mechanical engineer who actually enjoys when people say 'that's impossible'. Give me a complex design challenge or a property renovation that makes contractors shake their heads, and I'm in my element. Currently transforming historic buildings and building real estate value through strategic BRRR investments.</p>
-                <a href="#contact" class="cta-button">Let's Connect</a>
-                <a href="https://www.linkedin.com/in/emaclelland/" class="cta-button secondary" target="_blank">View LinkedIn</a>
-            </div>
-        </section>
+<nav>
+  <div class="nav-logo">EM</div>
+  <ul class="nav-links">
+    <li><a href="#about">About</a></li>
+    <li><a href="#expertise">Expertise</a></li>
+    <li><a href="#portfolio">Portfolio</a></li>
+    <li><a href="#experience">Experience</a></li>
+    <li><a href="#contact">Contact</a></li>
+  </ul>
+  <a href="#contact" class="nav-cta">Let's Connect</a>
+</nav>
 
-        <section id="about" class="section">
-            <div class="container">
-                <h2>About Me</h2>
-                <div class="about-content">
-                    <div class="profile-image">EM</div>
-                    <div>
-                        <p style="font-size: 1.1rem; margin-bottom: 1.5rem;">
-                            There's something deeply satisfying about taking apart complex problems and putting them back together in ways that just work, and work well. My UConn mechanical engineering background gives me the technical foundation, but my real strength comes from seeing opportunities where others see obstacles.
-                        </p>
-                        <p style="font-size: 1.1rem; margin-bottom: 1.5rem;">
-                            My entrepreneurial journey started early - I was buying broken iPods, fixing them up, and flipping them for profit on my family room floor. But real estate captured my attention during my sophomore year at UConn when my Zillow search filters switched from "For Rent" to "For Sale." That's how I discovered The Vinton, a Victorian Tudor that became my first investment property and the foundation of MAC Development Co.
-                        </p>
-                        <p style="font-size: 1.1rem; margin-bottom: 1.5rem;">
-                            Since then, I've dabbled in everything from iOS apps to e-commerce stores to landscaping businesses, and now I run MAC Development Co., specializing in value-add real estate investments using the BRRR strategy. I've also gained valuable field engineering experience managing critical MBTA infrastructure projects, which taught me invaluable lessons about working under pressure and coordinating complex operations.
-                        </p>
-                        <p style="font-size: 1.1rem;">
-                            What drives me isn't just building things that work — it's building things that work better than anyone thought possible. I actively share insights about engineering and entrepreneurship on LinkedIn, reaching thousands of professionals who follow my project updates and industry perspectives.
-                        </p>
-                    </div>
-                </div>
-            </div>
-        </section>
+<div class="hero">
+  <div class="hero-left">
+    <div class="hero-kicker">Mechanical Engineer · Real Estate Developer · Entrepreneur</div>
+    <div class="hero-name">ETHAN</div>
+    <div class="hero-name-sub">MacLelland</div>
+    <p class="hero-subtitle">Founder, MAC Development Co. &nbsp;·&nbsp; B.S. Mechanical Engineering, UConn</p>
+    <p class="hero-desc">I'm the kind of engineer who <strong>thrives on what others call impossible.</strong> Whether managing MBTA rail shutdowns on tight overnight windows or converting a 1935 stone church into a mixed-use asset, I operate at the intersection of technical precision and entrepreneurial hustle.</p>
+    <div class="hero-btns">
+      <a href="#contact" class="btn-fill">Let's Connect</a>
+      <a href="https://www.linkedin.com/in/emaclelland/" class="btn-outline" target="_blank">View LinkedIn ↗</a>
+    </div>
+  </div>
+  <div class="hero-right">
+    <div class="stat-block reveal"><div class="stat-number"><em>5</em>+</div><div class="stat-label">Properties Renovated</div></div>
+    <div class="stat-block reveal" style="transition-delay:.1s"><div class="stat-number"><em>0</em>%</div><div class="stat-label">Portfolio Vacancy Rate</div></div>
+    <div class="stat-block reveal" style="transition-delay:.2s"><div class="stat-number">$<em>2</em>M+</div><div class="stat-label">Projects Managed</div></div>
+    <div class="hero-location reveal" style="transition-delay:.3s"><div class="loc-dot"></div>Brookline, Massachusetts</div>
+  </div>
+</div>
 
-        <section id="expertise" class="section" style="background: linear-gradient(135deg, #f8f9fa 0%, #e9ecef 100%);">
-            <div class="container">
-                <h2>What I Do</h2>
-                <div class="expertise-grid">
-                    <div class="expertise-card">
-                        <div class="expertise-icon">🏗️</div>
-                        <h3>Real Estate Development</h3>
-                        <p>Specialized in BRRR strategy (Buy, Renovate, Rent, Refinance) for value-add residential and commercial properties, consistently delivering projects on time and under budget.</p>
-                    </div>
-                    <div class="expertise-card">
-                        <div class="expertise-icon">⚙️</div>
-                        <h3>Engineering Solutions</h3>
-                        <p>Mechanical engineering expertise with innovative problem-solving approach, from CAD design to complex project management. Previous experience includes critical infrastructure work on MBTA rail systems.</p>
-                    </div>
-                    <div class="expertise-card">
-                        <div class="expertise-icon">🚀</div>
-                        <h3>Entrepreneurship</h3>
-                        <p>Serial entrepreneur with experience across multiple industries - from tech startups to landscaping businesses, always finding creative ways to create value and build sustainable businesses.</p>
-                    </div>
-                </div>
-            </div>
-        </section>
+<section class="section" id="about">
+  <div class="section-header reveal"><span class="section-num">// 01</span><h2 class="section-title">ABOUT ME</h2></div>
+  <div class="about-grid">
+    <div class="about-text reveal">
+      <p>My engineering instinct showed up early — I was buying broken iPods, fixing them, and flipping them for profit on my family room floor before I could drive. Real estate changed everything. Sophomore year at UConn, my Zillow search filter quietly switched from "For Rent" to "For Sale," and I never looked back.</p>
+      <p>That switch led me to <strong>The Vinton</strong> — a distressed Victorian Tudor that became the first property and the foundation of MAC Development Co. Since then I've executed the BRRR strategy across multiple properties, built iOS apps, run a landscaping business, and managed high-stakes infrastructure projects for the MBTA. Each chapter sharpens the same skill: <strong>seeing the angle everyone else misses.</strong></p>
+      <p>My UConn mechanical engineering degree gives me the technical vocabulary. My edge comes from being willing to get into the weeds — with contractors, with city permitting, and with a portfolio that has maintained <strong>zero vacancy since day one.</strong></p>
+    </div>
+    <div class="aside-cards reveal" style="transition-delay:.15s">
+      <div class="aside-card"><div class="aside-card-label">Education</div><div class="aside-card-value">B.S. Mechanical Engineering<br>University of Connecticut, 2022</div></div>
+      <div class="aside-card"><div class="aside-card-label">Company</div><div class="aside-card-value">MAC Development Co.<br>Founder & Project Manager</div></div>
+      <div class="aside-card"><div class="aside-card-label">Strategy</div><div class="aside-card-value">BRRR — Buy, Renovate,<br>Rent, Refinance, Repeat</div></div>
+      <div class="aside-card"><div class="aside-card-label">Engineering Background</div><div class="aside-card-value">Field Engineer, SPS New England<br>MBTA Orange & Green Lines</div></div>
+    </div>
+  </div>
+</section>
 
-        <section id="portfolio" class="section">
-            <div class="container">
-                <h2>Featured Projects</h2>
-                <div class="portfolio-grid">
-                    <div class="portfolio-item featured origin-story">
-                        <div class="portfolio-image">
-                            <div class="portfolio-placeholder" style="background: linear-gradient(135deg, #8B4513 0%, #D2691E 100%); color: white; display: flex; align-items: center; justify-content: center; font-size: 2rem;">🏰</div>
-                            <div class="portfolio-overlay">
-                                <div class="portfolio-details">
-                                    <h3>The Vinton</h3>
-                                    <p>Where It All Began</p>
-                                    <span class="portfolio-tag">First Investment Property</span>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="portfolio-content">
-                            <h3>The Vinton: My First BRRR Success Story</h3>
-                            <p class="portfolio-date">2019 - Present</p>
-                            <p>While searching for off-campus housing at UConn, my Zillow filters switched from "For Rent" to "For Sale." This Victorian-era Tudor became my first property and the foundation of MAC Development Co. Completely transformed from a distressed property into a profitable 6-bedroom, 3-bathroom student rental.</p>
-                            <div class="portfolio-highlights">
-                                <span class="highlight-tag">BRRR Strategy</span>
-                                <span class="highlight-tag">Victorian Restoration</span>
-                                <span class="highlight-tag">Student Housing</span>
-                                <span class="highlight-tag">Portfolio Foundation</span>
-                            </div>
-                            <div class="brrr-breakdown">
-                                <div class="brrr-step">
-                                    <strong>Buy:</strong> Discovered during sophomore year housing search
-                                </div>
-                                <div class="brrr-step">
-                                    <strong>Renovate:</strong> Room-by-room transformation preserving historic charm
-                                </div>
-                                <div class="brrr-step">
-                                    <strong>Rent:</strong> Leased in one day, consistently rented to UConn students
-                                </div>
-                                <div class="brrr-step">
-                                    <strong>Refinance:</strong> Unlocked equity to fund next property acquisition
-                                </div>
-                            </div>
-                            <a href="https://www.linkedin.com/posts/emaclelland_brrr-realestate-realestateinvestment-activity-7274902757940027393-Va_l" target="_blank" class="portfolio-link">Read Full Story →</a>
-                        </div>
-                    </div>
+<section class="section" id="expertise">
+  <div class="section-header reveal"><span class="section-num">// 02</span><h2 class="section-title">WHAT I DO</h2></div>
+  <div class="expertise-grid">
+    <div class="exp-card reveal"><div class="exp-card-bg-num">01</div><span class="exp-icon">🏗️</span><div class="exp-title">REAL ESTATE DEVELOPMENT</div><p class="exp-desc">Specialist in value-add acquisitions using the BRRR strategy. I find distressed properties, execute full renovations, stabilize operations, and refinance to repeat — consistently on time and under budget.</p></div>
+    <div class="exp-card reveal" style="transition-delay:.1s"><div class="exp-card-bg-num">02</div><span class="exp-icon">⚙️</span><div class="exp-title">ENGINEERING SOLUTIONS</div><p class="exp-desc">Mechanical engineering applied from CAD concept through field execution. Proven under pressure managing critical MBTA rail infrastructure across overnight shutdown windows with zero margin for error.</p></div>
+    <div class="exp-card reveal" style="transition-delay:.2s"><div class="exp-card-bg-num">03</div><span class="exp-icon">🚀</span><div class="exp-title">ENTREPRENEURSHIP</div><p class="exp-desc">Serial founder across tech, e-commerce, and trades. Every venture teaches a new dimension of value creation — from iOS apps to landscaping to leading complex adaptive reuse developments.</p></div>
+  </div>
+</section>
 
-                    <div class="portfolio-item featured">
-                        <div class="portfolio-image">
-                            <div class="portfolio-placeholder" style="background: linear-gradient(135deg, #4A4A4A 0%, #2C2C2C 100%); color: white; display: flex; align-items: center; justify-content: center; font-size: 2rem;">⛪</div>
-                            <div class="portfolio-overlay">
-                                <div class="portfolio-details">
-                                    <h3>887 Stafford Road</h3>
-                                    <p>Historic Church Conversion</p>
-                                    <span class="portfolio-tag">Current Project</span>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="portfolio-content">
-                            <h3>Historic Stone Church Transformation</h3>
-                            <p class="portfolio-date">2025 - Present</p>
-                            <p>My most ambitious project yet - converting a beautiful 1935 stone church building that served the community until 2008 into a modern mixed-use property. This project represents the evolution of my expertise from residential renovations to complex adaptive reuse developments.</p>
-                            <div class="portfolio-highlights">
-                                <span class="highlight-tag">Historic Preservation</span>
-                                <span class="highlight-tag">Adaptive Reuse</span>
-                                <span class="highlight-tag">Stone Restoration</span>
-                                <span class="highlight-tag">Mixed-Use Development</span>
-                            </div>
-                            <a href="https://www.linkedin.com/posts/emaclelland_day-1-at-887-stafford-road-this-stone-activity-7310046311167188993-a0sV" target="_blank" class="portfolio-link">View Project Details →</a>
-                        </div>
-                    </div>
+<section class="section" id="portfolio">
+  <div class="section-header reveal"><span class="section-num">// 03</span><h2 class="section-title">PORTFOLIO</h2></div>
+  <div class="portfolio-list">
+    <div class="proj-row reveal"><div class="proj-num">01</div><div><div class="proj-title">THE VINTON</div><div class="proj-meta"><span class="date">2019 – Present</span> Victorian Tudor · 6BR/3BA · Student Rental · First BRRR Success</div></div><div class="proj-badge">Foundation</div></div>
+    <div class="proj-row reveal" style="transition-delay:.05s"><div class="proj-num">02</div><div><div class="proj-title">HISTORIC STONE CHURCH</div><div class="proj-meta"><span class="date">2025 – Present</span> Built 1935 · Adaptive Reuse · Mixed-Use Conversion</div></div><div class="proj-badge">Active</div></div>
+    <div class="proj-row reveal" style="transition-delay:.1s"><div class="proj-num">03</div><div><div class="proj-title">THE TRAP</div><div class="proj-meta"><span class="date">2022 – 2023</span> Value-Add Acquisition · Full Systems Upgrade · BRRR Exit</div></div><div class="proj-badge">Completed</div></div>
+    <div class="proj-row reveal" style="transition-delay:.15s"><div class="proj-num">04</div><div><div class="proj-title">POOL HOUSE</div><div class="proj-meta"><span class="date">2023 – 2024</span> Premium Renovation · Pool Restoration · Luxury Positioning</div></div><div class="proj-badge">Completed</div></div>
+    <div class="proj-row reveal" style="transition-delay:.2s"><div class="proj-num">05</div><div><div class="proj-title">MBTA FIELD ENGINEERING</div><div class="proj-meta"><span class="date">2024 – 2025</span> SPS New England · Orange & Green Lines · Track Improvements</div></div><div class="proj-badge">Engineering</div></div>
+  </div>
+</section>
 
-                    <div class="portfolio-item">
-                        <div class="portfolio-image">
-                            <div class="portfolio-placeholder" style="background: linear-gradient(135deg, #FF6B35 0%, #2E7D32 100%); color: white; display: flex; align-items: center; justify-content: center; font-size: 2rem;">🚇</div>
-                            <div class="portfolio-overlay">
-                                <div class="portfolio-details">
-                                    <h3>MBTA Infrastructure</h3>
-                                    <p>Field Engineering Portfolio</p>
-                                    <span class="portfolio-tag">Past Experience</span>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="portfolio-content">
-                            <h3>MBTA Field Engineering Projects</h3>
-                            <p class="portfolio-date">2024 - 2025 | SPS New England</p>
-                            <p>Led critical field engineering operations across multiple MBTA lines during high-stakes shutdown windows. Managed complex track improvement projects, coordinated material logistics, and ensured seamless execution under extreme time constraints across Orange, Green, and other transit lines.</p>
-                            <div class="portfolio-highlights">
-                                <span class="highlight-tag">Orange Line TIP</span>
-                                <span class="highlight-tag">Green Line Shutdown</span>
-                                <span class="highlight-tag">Track Improvements</span>
-                                <span class="highlight-tag">Project Coordination</span>
-                            </div>
-                            <div class="project-links">
-                                <a href="https://www.linkedin.com/posts/emaclelland_tip-boston-mbta-activity-7258988855679225856-61TS" target="_blank" class="portfolio-link">Orange Line Project →</a>
-                                <a href="https://www.linkedin.com/posts/emaclelland_tip-railroadsps-infrastructureinnovation-activity-7246988086696382464-4VNp" target="_blank" class="portfolio-link">Track Innovation →</a>
-                                <a href="https://www.linkedin.com/posts/spsneinc_during-the-mbtas-recent-10-day-green-line-ugcPost-7233926688844181504-1iby" target="_blank" class="portfolio-link">Green Line Shutdown →</a>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </section>
+<section class="section" id="experience">
+  <div class="section-header reveal"><span class="section-num">// 04</span><h2 class="section-title">EXPERIENCE</h2></div>
+  <div class="timeline">
+    <div class="tl-item reveal"><div class="tl-dot"></div><div class="tl-period">2019 – Present</div><div class="tl-role">FOUNDER & PROJECT MANAGER</div><div class="tl-company">MAC Development Co.</div><p class="tl-desc">Built and manage a growing portfolio of value-add residential and adaptive reuse properties. Oversee all aspects of the BRRR process — acquisition, renovation management, tenant placement, and refinancing. Currently leading the historic stone church conversion, the most complex project in the portfolio's history.</p></div>
+    <div class="tl-item reveal" style="transition-delay:.1s"><div class="tl-dot"></div><div class="tl-period">2024 – 2025</div><div class="tl-role">FIELD ENGINEER</div><div class="tl-company">SPS New England · MBTA Infrastructure</div><p class="tl-desc">Led field engineering during high-stakes overnight shutdown windows across MBTA Orange and Green Lines. Coordinated track improvement crews, managed material logistics, and ensured zero overruns on a system where every hour over-window carries major costs.</p></div>
+    <div class="tl-item reveal" style="transition-delay:.2s"><div class="tl-dot"></div><div class="tl-period">2016 – Present</div><div class="tl-role">SERIAL ENTREPRENEUR</div><div class="tl-company">iOS Development · E-Commerce · Landscaping</div><p class="tl-desc">A lifelong pattern of spotting gaps and filling them. Launched iOS apps, ran profitable e-commerce operations, and scaled a landscaping business — each teaching new dimensions of operations, customer relationships, and capital allocation that directly inform how I run real estate today.</p></div>
+    <div class="tl-item reveal" style="transition-delay:.3s"><div class="tl-dot"></div><div class="tl-period">2018 – 2022</div><div class="tl-role">B.S. MECHANICAL ENGINEERING</div><div class="tl-company">University of Connecticut</div><p class="tl-desc">Technical foundation in mechanical systems, CAD, materials, and engineering methodology. Simultaneously launched The Vinton — turning college housing research into a portfolio anchor that has been fully occupied ever since.</p></div>
+  </div>
+</section>
 
-        <section id="experience" class="section">
-            <div class="container">
-                <h2>Professional Journey</h2>
-                <div class="experience-timeline">
-                    <div class="timeline-item">
-                        <div class="timeline-content">
-                            <div class="timeline-date">Jan 2025 - Present</div>
-                            <div class="timeline-title">Project Manager</div>
-                            <div class="timeline-company">MAC Development Co.</div>
-                            <p>Leading comprehensive renovation plans and managing the full project lifecycle from acquisition analysis through tenant placement, leveraging engineering background to identify structural opportunities and cost-effective improvements.</p>
-                        </div>
-                        <div class="timeline-dot"></div>
-                    </div>
-                    
-                    <div class="timeline-item">
-                        <div class="timeline-content">
-                            <div class="timeline-date">Apr 2024 - Jan 2025</div>
-                            <div class="timeline-title">Field Engineer</div>
-                            <div class="timeline-company">SPS New England, Inc.</div>
-                            <p>Managed field engineering operations during critical MBTA rail diversion shutdowns across Orange, Green, and other transit lines. Coordinated complex logistics, material delivery, and cost control while working under tight shutdown windows. This experience provided valuable lessons in high-pressure project management and complex stakeholder coordination.</p>
-                        </div>
-                        <div class="timeline-dot"></div>
-                    </div>
-                    
-                    <div class="timeline-item">
-                        <div class="timeline-content">
-                            <div class="timeline-date">Dec 2019 - Present</div>
-                            <div class="timeline-title">Property Manager & Founder</div>
-                            <div class="timeline-company">MAC Development Co.</div>
-                            <p>Founded and operated a real estate investment company specializing in value-add properties. Built a network of skilled subcontractors and established quality standards that became the foundation for scalable operations.</p>
-                        </div>
-                        <div class="timeline-dot"></div>
-                    </div>
-                    
-                    <div class="timeline-item">
-                        <div class="timeline-content">
-                            <div class="timeline-date">May 2019 - Aug 2019</div>
-                            <div class="timeline-title">Engineering Intern</div>
-                            <div class="timeline-company">General Dynamics Electric Boat</div>
-                            <p>Built hands-on engineering skills while collaborating with team members to generate innovative solutions to complex problems. Utilized CAD software and compiled comprehensive test results for management review.</p>
-                        </div>
-                        <div class="timeline-dot"></div>
-                    </div>
-                </div>
-            </div>
-        </section>
+<section class="section" id="contact">
+  <div class="section-header reveal"><span class="section-num">// 05</span><h2 class="section-title">LET'S BUILD</h2></div>
+  <div class="contact-grid">
+    <div class="reveal">
+      <h3 class="contact-heading">GOT A PROBLEM<br>WORTH SOLVING?</h3>
+      <p class="contact-body">Whether it's a real estate deal that doesn't quite add up, an engineering challenge with no clean answer, or a business idea that needs someone who can actually execute — let's talk.</p>
+      <div class="contact-links">
+        <a href="https://www.linkedin.com/in/emaclelland/" class="contact-link" target="_blank"><span class="contact-icon">💼</span>Connect on LinkedIn</a>
+        <a href="/cdn-cgi/l/email-protection#a9ccddc1c8c7e9c4c8cacdccdfccc5c6d9c4ccc7ddcac687cac6c4" class="contact-link"><span class="contact-icon">✉️</span><span class="__cf_email__" data-cfemail="0560716d646b4568646661607360696a7568606b71666a2b666a68">[email&#160;protected]</span></a>
+      </div>
+    </div>
+    <form class="reveal" style="transition-delay:.15s" onsubmit="return false;">
+      <div class="form-group"><label class="form-label">Your Name</label><input type="text" class="form-input" placeholder="Jane Smith"></div>
+      <div class="form-group"><label class="form-label">Email Address</label><input type="email" class="form-input" placeholder="jane@company.com"></div>
+      <div class="form-group"><label class="form-label">Project Type</label><select class="form-select"><option value="">Select a category</option><option value="real-estate">Real Estate Development</option><option value="engineering">Engineering Consultation</option><option value="collaboration">Business Collaboration</option><option value="other">Other</option></select></div>
+      <div class="form-group"><label class="form-label">Tell Me About It</label><textarea class="form-textarea" placeholder="Describe your project or challenge..."></textarea></div>
+      <button type="submit" class="form-submit">Send Message →</button>
+    </form>
+  </div>
+</section>
 
-        <section id="contact" class="section">
-            <div class="container">
-                <h2>Let's Build Something Together</h2>
-                <form class="contact-form" onsubmit="handleSubmit(event)">
-                    <div class="form-group">
-                        <label for="name">Name</label>
-                        <input type="text" id="name" name="name" required>
-                    </div>
-                    <div class="form-group">
-                        <label for="email">Email</label>
-                        <input type="email" id="email" name="email" required>
-                    </div>
-                    <div class="form-group">
-                        <label for="project">Project Type</label>
-                        <select id="project" name="project" style="width: 100%; padding: 12px; border: 2px solid #ddd; border-radius: 10px; font-size: 1rem;">
-                            <option value="">Select a project type</option>
-                            <option value="real-estate">Real Estate Development</option>
-                            <option value="engineering">Engineering Consultation</option>
-                            <option value="entrepreneurship">Business Collaboration</option>
-                            <option value="other">Other</option>
-                        </select>
-                    </div>
-                    <div class="form-group">
-                        <label for="message">Tell me about your project</label>
-                        <textarea id="message" name="message" rows="5" required placeholder="Describe your challenge or opportunity..."></textarea>
-                    </div>
-                    <button type="submit" class="submit-btn">Send Message</button>
-                </form>
-            </div>
-        </section>
-    </main>
+<footer>
+  <div class="footer-copy">© 2025 Ethan MacLelland · MAC Development Co. · Brookline, MA</div>
+  <div class="footer-links"><a href="https://www.linkedin.com/in/emaclelland/" target="_blank">LinkedIn</a><a href="/cdn-cgi/l/email-protection#cbaebfa3aaa58ba6aaa8afaebdaea7a4bba6aea5bfa8a4e5a8a4a6">Email</a></div>
+</footer>
 
-    <footer>
-        <div class="container">
-            <div class="social-links">
-                <a href="https://www.linkedin.com/in/emaclelland/" target="_blank" title="LinkedIn">LinkedIn</a>
-                <a href="mailto:ethan@macdevelopmentco.com" title="Email">Email</a>
-            </div>
-            <p>&copy; 2025 Ethan MacLelland. All rights reserved.</p>
-        </div>
-    </footer>
-
-    <script>
-        // Smooth scrolling for navigation links
-        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-            anchor.addEventListener('click', function (e) {
-                e.preventDefault();
-                const target = document.querySelector(this.getAttribute('href'));
-                if (target) {
-                    target.scrollIntoView({
-                        behavior: 'smooth',
-                        block: 'start'
-                    });
-                }
-            });
-        });
-
-        // Header background on scroll
-        window.addEventListener('scroll', () => {
-            const header = document.querySelector('header');
-            if (window.scrollY > 100) {
-                header.style.background = 'rgba(255, 255, 255, 0.95)';
-                header.querySelectorAll('a, .logo').forEach(el => {
-                    el.style.color = '#333';
-                });
-            } else {
-                header.style.background = 'rgba(255, 255, 255, 0.1)';
-                header.querySelectorAll('a, .logo').forEach(el => {
-                    el.style.color = 'white';
-                });
-            }
-        });
-
-        // Form submission handler
-        function handleSubmit(event) {
-            event.preventDefault();
-            const formData = new FormData(event.target);
-            const data = Object.fromEntries(formData);
-            
-            // Simulate form submission
-            alert(`Thank you, ${data.name}! Your message about ${data.project || 'your project'} has been received. I'll get back to you soon to discuss how we can tackle this challenge together!`);
-            event.target.reset();
-        }
-
-        // Add animation on scroll
-        const observerOptions = {
-            threshold: 0.1,
-            rootMargin: '0px 0px -50px 0px'
-        };
-
-        const observer = new IntersectionObserver((entries) => {
-            entries.forEach(entry => {
-                if (entry.isIntersecting) {
-                    entry.target.style.animation = 'fadeInUp 0.8s ease forwards';
-                }
-            });
-        }, observerOptions);
-
-        // Observe expertise cards, portfolio items, and timeline items
-        document.querySelectorAll('.expertise-card, .portfolio-item, .timeline-item').forEach(item => {
-            observer.observe(item);
-        });
-    </script>
-</body>
-</html>
+</div>
+<script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script><script>
+  const obs = new IntersectionObserver((entries) => { entries.forEach(e =
